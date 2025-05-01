@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深海魚 説明当てクイズ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>深海魚 説明当てクイズ</h1>
+        <p>この説明に当てはまる深海魚はどれ？</p>
+
+        <div id="question-area">
+            <p id="progress"></p>
+            <div id="question-text-container"> <!-- 問題文表示エリア -->
+                <p id="question-text"></p>
+            </div>
+            <div id="options" class="options-grid-images"> <!-- 選択肢表示エリア (クラス名変更) -->
+                <!-- 選択肢ボタン（画像＋名前）はJavaScriptで生成されます -->
+            </div>
+            <p id="feedback"></p> <!-- フィードバック表示エリア -->
+            <button id="next-btn" style="display: none;">次へ</button>
+        </div>
+
+        <div id="result-area" style="display: none;">
+            <h2>結果発表</h2>
+            <p id="score"></p>
+            <p id="final-feedback"></p> <!-- 最終フィードバック用 -->
+            <button id="restart-btn">もう一度挑戦する</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

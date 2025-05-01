@@ -1,0 +1,173 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0f2f7;
+    margin: 0;
+}
+
+#quiz-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 650px; /* 少し幅を広げる */
+}
+
+h1 {
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#progress {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px; /* 少し間隔を空ける */
+}
+
+#question-text-container { /* 問題文コンテナ */
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px; /* 選択肢との間隔 */
+    border: 1px solid #dee2e6;
+}
+
+#question-text { /* 問題文テキスト */
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #343a40;
+    text-align: left; /* 左寄せ */
+    margin: 0; /* 親要素のpaddingがあるのでmargin不要 */
+}
+
+/* --- 画像付き選択肢のグリッド --- */
+.options-grid-images {
+    display: grid;
+    /* 画面幅に応じて列数を変更 (例: 2列) */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* 選択肢間の隙間 */
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* --- 各選択肢ボタン (画像+名前) --- */
+.option-btn-image {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+    display: flex;
+    flex-direction: column; /* 画像と名前を縦に並べる */
+    align-items: center; /* 中央揃え */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.option-btn-image:hover:not(:disabled) {
+    background-color: #f1f3f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn-image:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.option-btn-image:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.option-btn-image img { /* 選択肢内の画像 */
+    width: 100%; /* ボタン幅に合わせる */
+    max-width: 150px; /* 最大幅を指定 */
+    height: 100px; /* 高さを固定 (必要なら調整) */
+    object-fit: contain; /* アスペクト比を保ちつつ全体表示 */
+    margin-bottom: 10px; /* 画像と名前の間隔 */
+    border-radius: 4px; /* 画像の角を少し丸める */
+    background-color: #e9ecef; /* 画像読み込み中の背景 */
+}
+
+.option-btn-image span { /* 選択肢の名前 */
+    font-size: 1em;
+    color: #212529;
+    font-weight: 500;
+}
+
+/* --- 正解・不正解時のスタイル --- */
+.option-btn-image.correct {
+    background-color: #d1e7dd; /* 薄い緑 */
+    border-color: #a3cfbb;
+}
+.option-btn-image.correct span {
+    color: #0f5132; /* 濃い緑 */
+}
+
+.option-btn-image.incorrect {
+    background-color: #f8d7da; /* 薄い赤 */
+    border-color: #f5c2c7;
+}
+.option-btn-image.incorrect span {
+    color: #842029; /* 濃い赤 */
+}
+/* 選択されなかった正解の選択肢をハイライトする場合（JavaScriptでクラスを付与） */
+.option-btn-image.reveal-correct {
+    outline: 3px solid #198754; /* 緑の枠線 */
+    outline-offset: 2px;
+}
+
+
+#feedback {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 1.2em;
+}
+
+.correct-feedback {
+    color: #1a7e3a;
+}
+
+.incorrect-feedback {
+    color: #b52b39;
+}
+
+#next-btn, #restart-btn {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* 位置調整 */
+}
+
+#next-btn:hover, #restart-btn:hover {
+    background-color: #5a6268;
+}
+
+#result-area p {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+#final-feedback {
+    font-weight: bold;
+}
