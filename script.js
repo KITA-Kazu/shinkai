@@ -310,7 +310,7 @@ function showResults() {
     let finalFeedbackMsg = ""; // 表示するメッセージ
 
     if (score === quizData.length) { // 満点の場合
-        finalFeedbackMsg = "よくやった。<ruby>財宝<rt>ざいほう</rt></ruby>のありかのヒントを<ruby>与<rt>あた</rt></ruby>えよう。『シウタ』だ。<ruby>忘<rt>わす</rt></ruby>れるな、、、";
+        finalFeedbackMsg = "よくやった。<ruby>財宝<rt>ざいほう</rt></ruby>のありかのヒントを<ruby>与<rt>あた</rt></ruby>えよう。『こごろ』だ。<ruby>忘<rt>わす</rt></ruby>れるな、、、";
     } else { // 満点でない場合
         // スコアに応じた励ましの言葉 (例)
         let encouragement = "";
